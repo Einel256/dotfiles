@@ -1,0 +1,119 @@
+/**
+@name system24-miku-miku-wa
+@description system24 for matugen
+@author refact0r
+@version 3.1.0
+*/
+@import url('https://refact0r.github.io/system24/build/system24.css');
+
+body {
+  --font: 'Maple Mono', 'monospace';
+  --code-font: 'Maple Mono', 'monospace';
+  font-weight: 300;
+  letter-spacing: -0.05ch;
+  font-size: 13px;
+  --gap: 12px;
+  --divider-thickness: 4px;
+  --border-thickness: 2px;
+
+  --animations: on;
+  --list-item-transition: 0.1s ease;
+
+  --top-bar-height: var(--gap);
+  --top-bar-title-position: off;
+
+  --small-user-panel: on;
+  --unrounding: on;
+}
+
+:root {
+  --colors: on;
+
+  /* text */
+  --text-0: #131317;
+  --text-1: #e4e1e8;
+  --text-2: #e4e1e8;
+  --text-3: color-mix(in srgb, #e4e1e8 70%, #8f909b);
+  --text-4: color-mix(in srgb, #e4e1e8 55%, #8f909b);
+  --text-5: color-mix(in srgb, #e4e1e8 45%, #8f909b);
+
+  /* backgrounds */
+  --bg-1: #131317;
+  --bg-2: #454650;
+  --bg-3: #454650;
+  --bg-4: #131317;
+
+  --hover: #454650;
+  --active: #454650;
+  --message-hover: #454650;
+
+  /* PRIMARY */
+  --accent-1: #b8c3ff;
+
+  /* map ALL system24 accents */
+  --accent-2: var(--accent-1);
+  --accent-3: #c0c5e5;
+  --accent-4: #454650;
+  --accent-5: #f5b0ef;
+  --accent-6: var(--accent-1);
+
+  /* borders */
+  --border-light: color-mix(in srgb, var(--accent-1) 22%, transparent);
+  --border: color-mix(in srgb, var(--accent-1) 40%, transparent);
+  --border-active: var(--accent-1);
+
+  /* inactive / muted */
+  --accent-muted: color-mix(in srgb, var(--accent-1) 28%, transparent);
+  --list-inactive: var(--accent-muted);
+  --icon-muted: var(--accent-muted);
+
+  /* system24 internals */
+  --panel-highlight: var(--accent-1);
+  --list-active: var(--accent-1);
+  --pill-active: var(--accent-1);
+
+  /* status */
+  --online: #b8c3ff;
+  --idle: #f5b0ef;
+  --dnd: #ffb4ab;
+  --streaming: #c0c5e5;
+  --offline: #8f909b;
+}
+
+/* ===================== /
+/ SELECTIONS            /
+/ ===================== */
+.modeSelected-3DmyhH .content-1gYQeQ,
+.selected-1-Z6gm {
+  background: color-mix(in srgb, var(--accent-1) 16%, transparent) !important;
+}
+
+.modeSelected-3DmyhH:not(.focused-3qFvc8) .content-1gYQeQ {
+  background: var(--accent-muted) !important;
+}
+
+/* ===================== /
+/ ACTIVITY / FRIENDS    /
+/ ===================== */
+.activityItem-1Z9CTr,
+.friendSelected-3cwmD7 {
+  background: color-mix(in srgb, var(--accent-1) 18%, transparent) !important;
+}
+
+/* ===================== /
+/ HEADER BORDER         /
+/ ===================== */
+.title-31SJ6t {
+  border-bottom: 1px solid var(--border-light) !important;
+}
+
+/* ===================== /
+/ HOME ICON             /
+/ ===================== */
+.tutorialContainer-1pL9QS svg {
+  color: var(--icon-muted) !important;
+}
+
+.tutorialContainer-1pL9QS.selected-1Drb7Z svg {
+  color: var(--accent-1) !important;
+}

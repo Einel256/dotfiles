@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<JSymphonicSetting>
+    <WindowSettings>
+        <Position PositionX="100" PositionY="100"/>
+        <Size Height="480" Width="640"/>
+    </WindowSettings>
+    <GuiSettings Language="English (default)" Theme="Metal"/>
+    <Logging Level="ALL" LogToFile="false"/>
+    <Transfer AlwaysTranscode="true" Bitrate="320" ReadID3Tags="true" readTagFolderStructure="&lt;Artist&gt;/&lt;Album&gt;/&lt;Title&gt;"/>
+    <Profiles Selected="Default">
+        <Profile DeviceGeneration="5" DevicePath="/run/media/einel256/disk/OMGAUDIO" ExPathIsSameAsLPath="false" ExportPath="/home/einel256/Music" LocalPath="/home/einel256/Music" Name="Default" TTPathIsSameAsDPath="false" TranscodeTempPath="/home/einel256"/>
+    </Profiles>
+</JSymphonicSetting>

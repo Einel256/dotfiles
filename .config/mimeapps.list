@@ -1,0 +1,8 @@
+
+[Default Applications]
+x-scheme-handler/http=brave-browser-nightly.desktop
+x-scheme-handler/https=brave-browser-nightly.desktop
+text/html=brave-browser-nightly.desktop
+application/pdf=org.pwmt.zathura.desktop
+x-scheme-handler/about=brave-browser-nightly.desktop
+x-scheme-handler/unknown=brave-browser-nightly.desktop
