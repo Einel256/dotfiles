@@ -1,8 +1,6 @@
-# ─── Meta ───────────────────────────────────────────────────────
-# インタラクティブシェル以外では読み込まない
+
 [[ $- != *i* ]] && return
 
-# ─── Environment & PATH (重複防止) ──────────────────────────────
 typeset -U path PATH
 path=(
   "$HOME/.local/bin"
@@ -39,7 +37,6 @@ setopt NULL_GLOB
 # ─── Keybinds & Input Method ─────────────────────────────────────
 bindkey -e
 
-# fcitx5が起動していない場合のみバックグラウンドで起動（無限ループ回避）
 if ! pgrep -x fcitx5 >/dev/null 2>&1; then
     fcitx5 >/dev/null 2>&1 &!
 fi
@@ -52,20 +49,17 @@ if [[ ! -d "$ZINIT_HOME" ]]; then
 fi
 source "${ZINIT_HOME}/zinit.zsh"
 
-# プラグイン読み込み（ここだけで一括管理）
 zinit light zsh-users/zsh-completions
 zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 
-# Autosuggestions 設定
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=true
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#737994"
 
 # ─── Completion Engine Setup ─────────────────────────────────────
 autoload -Uz compinit
-# 24時間に1回のみキャッシュを更新（高速化）
 if [[ -n "${HOME}/.zcompdump(#qN.mh+24)" ]]; then
     compinit -d "${HOME}/.zcompdump"
 else
@@ -117,7 +111,6 @@ alias ytv='yt-dlp -f "bv*+ba/b" -S ext:mp4:m4a --merge-output-format mp4'
 
 video() {
     mpv --force-window=yes "$@" &!
-    # exit を削除（ターミナルが閉じないように）
 }
 
 gitmain() {
@@ -166,7 +159,6 @@ cover() {
     echo "Done ($total tracks)"
 }
 
-# VPN処理の共通モジュール化（jplay と anime の重複コード削減）
 _vpn_wrapper_start() {
     VPN_LAUNCHED_BY_SCRIPT=0
     if ! protonvpn status 2>/dev/null | grep -iq "Status: Connected"; then
