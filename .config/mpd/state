@@ -1,0 +1,20 @@
+sw_volume: 74
+audio_device_state:1:My ALSA Device
+state: play
+current: 4
+time: 0.481
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 5
+mixrampdb: 0
+mixrampdelay: -1
+lastloadedplaylist: いつもの
+playlist_begin
+0:敬愛/typing.m4a
+1:敬愛/typing.m4a
+2:敬愛/typing.m4a
+3:敬愛/typing.m4a
+4:敬愛/things happen. it's ok/BURNING TIRES.m4a
+playlist_end

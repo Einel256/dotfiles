@@ -1,0 +1,27 @@
+[flavor]
+use_default = true
+
+[manager]
+# 選択・ホバーしている行の色
+hovered = { fg = "#fcfaff", bg = "#365592" }
+# 右側のファイルプレビュー枠の境界線
+preview_border = { fg = "#aec6ff" }
+# アクティブなペインの境界線
+border = { fg = "#8e909b" }
+
+[status]
+# ステータスバーの背景と文字色
+background = { fg = "#c4c6d1", bg = "#333539" }
+# 各種モード（NORMAL, SELECT等）のバッジ色
+normal_mode = { fg = "#032e69", bg = "#aec6ff", bold = true }
+select_mode = { fg = "#263048", bg = "#bcc6e4", bold = true }
+unset_mode  = { fg = "#690005", bg = "#ffb4ab", bold = true }
+
+[input]
+# 入力プロンプト（名前変更時など）の枠線とホバー
+border  = { fg = "#aec6ff" }
+hovered = { fg = "#aec6ff" }
+
+[select]
+# タブや選択画面の枠
+border = { fg = "#aec6ff" }

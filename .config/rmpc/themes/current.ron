@@ -1,0 +1,184 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+
+(
+    show_song_table_header: false,
+    draw_borders: false,
+    format_tag_separator: " | ",
+    browser_column_widths: [33, 33, 33],
+    background_color: None,
+    text_color: "253",
+    header_background_color: None ,
+    modal_background_color: None ,
+    modal_backdrop: false,
+    preview_label_style: (fg: "255"),
+    preview_metadata_group_style: (fg: "255"),
+    tab_bar: (
+        active_style: (fg: "254"),
+        inactive_style: (fg: "255"),
+    ),
+    highlighted_item_style: (fg: "255"),
+    current_item_style: (fg: "211"),
+    borders_style: (fg: "255"),
+    highlight_border_style: (fg: "195"),
+    symbols: (
+        song: " ",
+        dir: " ",
+        playlist: "󰲸 ",
+        marker: " ",
+        ellipsis: "...",
+        song_style: (fg: "253"),
+        dir_style: (fg: "253"),
+        playlist_style: (fg: "253"),
+    ),
+    level_styles: (
+        info: (),
+        warn: (),
+        error: (),
+        debug: (),
+        trace: (),
+    ),
+    progress_bar: (
+        symbols: ["", "█", "", "█", ""],
+        track_style: (fg: "254"),
+        elapsed_style: (fg: "255"),
+        thumb_style: (fg: "255"),
+        use_track_when_empty: false,
+    ),
+    scrollbar: (
+        symbols: [" ", " ", " ", " "],
+        track_style: (fg: "254"),
+        ends_style: (fg: "254"),
+        thumb_style: (fg: "254"),
+    ),
+    cava: (
+        bar_symbols: ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
+        inverted_bar_symbols: ['▔', '🮂', '🮃', '▀', '🮄', '🮅', '🮆', '█'],
+        bar_width: 1,
+        bar_spacing: 1,
+        orientation: Bottom,
+        style: (fg: "255"),
+    ),
+
+
+    song_table_format: [
+        (
+            prop: (
+                kind: Group([
+                    (kind: Text(" ")),
+                    (kind: Sticker("playCount"), default: (kind: Text("-"))),
+                ]),
+            ),
+            width: "3",
+        ),
+        (
+            prop: (
+                kind: Group([
+                    (kind: Text(" ")),
+                    (kind: Property(Artist)),
+                ]),
+            ),
+            width: "30%",
+        ),
+        (
+            prop: (kind: Property(Title),
+                default: (kind: Text("Unknown"))
+            ),
+            width: "70%",
+        ),
+    ],
+    components: {
+        "custom_song_table_header": Split(borders: "NONE", direction: Horizontal, panes: [
+            (size: "4", pane: Pane(Property(content: [
+                (kind: Text(""), style: (fg: "236")),
+            ], align: Left))
+            ),
+            (size: "30%", pane: Pane(Property(content: [
+                (kind: Text(" Artist "), style: (modifiers: "Bold")),
+                (kind: Text(""), style: ())
+            ], align: Left))
+            ),
+            (size: "31%", pane: Pane(Property(content: [
+                (kind: Text("Track "), style: (modifiers: "Bold")),
+                (kind: Text(""), style: ())
+            ], align: Left))
+            ),
+        ]),
+        "song_info": Split(direction: Vertical, panes: [
+            (size: "70%", pane: Split(direction: Vertical, panes: [
+            ]))
+        ]),
+        "custom-header": Split(direction: Horizontal, panes: [
+            (size: "18%", pane: Split(direction: Vertical, panes: [
+                (size: "100%", pane: Pane(Property(content: [
+                    (kind: Property(Status(StateV2(playing_label: " Playing   ", paused_label: " Paused   ", stopped_label: " Stopped   "))), style: (fg: "195")),
+                    (kind: Property(Widget(ScanStatus)), style: (modifiers: "Bold"))
+                ], align: Left))),
+                (size: "100%", pane: Pane(Property(content: [
+                    (kind: Text(" ")),
+                    (kind: Property(Status(Elapsed)), style: (fg: "195")),
+                    (kind: Text(" / "), style: (fg: "195")),
+                    (kind: Property(Status(Duration)), style: (fg: "195")),
+                    (kind: Text(" 󰪢"), style: (fg: "195")),
+                ], align: Left))
+                ),
+            ])
+            ),
+            (size: "65%", pane: Split(direction: Vertical, panes: [
+                (size: "100%", pane: Pane(Property(content: [
+                    (kind: Property(Song(Title)), style: (fg: "253"),
+                default: (kind: Property(Song(Filename)), style: (fg: "253")))
+                ], align: Center))
+                ),
+                (size: "100%", pane: Pane(Property(content: [
+                    (kind: Property(Song(Artist)), style: (fg: "253"),
+                default: (kind: Text("Unknown Artist"))),
+                    (kind: Text("  ")),
+                    (kind: Property(Song(Album)), style: (fg: "253"),
+                default: (kind: Text("Unknown Album"), style: (fg: "253"),))
+                ], align: Center))
+                ),
+            ])
+            ),
+            (size: "18%", pane: Split(direction: Vertical, panes: [
+                (size: "100%", pane: Pane(Property(content: [
+                    (kind: Property(Status(RepeatV2(on_label: "", off_label: "",
+                                                   on_style: (fg: "255"), off_style: (fg: "254"))))),
+                    (kind: Text("  "), style: (modifiers: "Bold")),
+                    (kind: Property(Status(RandomV2(on_label: "", off_label: "",
+                                                   on_style: (fg: "255"), off_style: (fg: "254"))))),
+                    (kind: Text("  "), style: (modifiers: "Bold")),
+                    (kind: Property(Status(ConsumeV2(on_label: "󰮯", off_label: "󰮯", oneshot_label: "󰮯 󰇊",
+                                                    on_style: (fg: "255"), off_style: (fg: "254"))))),
+                    (kind: Text("  "), style: (modifiers: "Bold")),
+                    (kind: Property(Status(SingleV2(on_label: " ", off_label: " ", oneshot_label: "󰇊", off_oneshot_label: "󱅊",
+                                                   on_style: (fg: "255"), off_style: (fg: "254"))))),
+                ], align: Right))
+                ),
+            ])
+            ),
+        ])
+    },
+    layout: Split(
+        direction: Vertical, panes: [
+            (size: "2", pane: Pane(Tabs)),
+            (size: "4", borders: "TOP | BOTTOM", pane: Component("custom-header")),
+            (size: "100%", borders: "NONE", pane: Pane(TabContent)),
+            (size: "3", borders: "TOP | BOTTOM", pane: Pane(ProgressBar)),
+        ]),
+    header: (rows: []),
+    browser_song_format: [
+        (
+            kind: Group([
+                (kind: Property(Artist)),
+                (kind: Text(" - ")),
+                (kind: Property(Title)),
+            ]),
+            default: (kind: Property(Filename))
+        ),
+    ],
+    lyrics: (
+        timestamp: false
+    )
+)
